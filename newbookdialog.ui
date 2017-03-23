@@ -1,0 +1,283 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<ui version="4.0">
+ <class>NewBookDialog</class>
+ <widget class="QDialog" name="NewBookDialog">
+  <property name="geometry">
+   <rect>
+    <x>0</x>
+    <y>0</y>
+    <width>600</width>
+    <height>500</height>
+   </rect>
+  </property>
+  <property name="windowTitle">
+   <string>添加新书</string>
+  </property>
+  <widget class="QGroupBox" name="groupBox">
+   <property name="geometry">
+    <rect>
+     <x>10</x>
+     <y>10</y>
+     <width>581</width>
+     <height>471</height>
+    </rect>
+   </property>
+   <property name="styleSheet">
+    <string notr="true">font: 25 14pt &quot;等线 Light&quot;;</string>
+   </property>
+   <property name="title">
+    <string>添加新书</string>
+   </property>
+   <widget class="QSplitter" name="splitter_7">
+    <property name="geometry">
+     <rect>
+      <x>20</x>
+      <y>250</y>
+      <width>401</width>
+      <height>201</height>
+     </rect>
+    </property>
+    <property name="orientation">
+     <enum>Qt::Horizontal</enum>
+    </property>
+    <widget class="QLabel" name="Label_Intro">
+     <property name="styleSheet">
+      <string notr="true">font: 25 10pt &quot;等线 Light&quot;;</string>
+     </property>
+     <property name="text">
+      <string>图书简介</string>
+     </property>
+    </widget>
+    <widget class="QTextEdit" name="Edit_Intro">
+     <property name="styleSheet">
+      <string notr="true">font: 25 10pt &quot;等线 Light&quot;;</string>
+     </property>
+     <property name="placeholderText">
+      <string>100字以内</string>
+     </property>
+    </widget>
+   </widget>
+   <widget class="QSplitter" name="splitter">
+    <property name="geometry">
+     <rect>
+      <x>90</x>
+      <y>30</y>
+      <width>331</width>
+      <height>211</height>
+     </rect>
+    </property>
+    <property name="styleSheet">
+     <string notr="true">font: 25 10pt &quot;等线 Light&quot;;</string>
+    </property>
+    <property name="orientation">
+     <enum>Qt::Vertical</enum>
+    </property>
+    <widget class="QLineEdit" name="Edit_Title">
+     <property name="placeholderText">
+      <string>不需要输入书名号</string>
+     </property>
+    </widget>
+    <widget class="QLineEdit" name="Edit_Author"/>
+    <widget class="QLineEdit" name="Edit_Publisher"/>
+    <widget class="QComboBox" name="Edit_Department">
+     <property name="currentText">
+      <string>计算机学院</string>
+     </property>
+     <item>
+      <property name="text">
+       <string>计算机学院</string>
+      </property>
+     </item>
+     <item>
+      <property name="text">
+       <string>理学院</string>
+      </property>
+     </item>
+     <item>
+      <property name="text">
+       <string>马克思主义学院</string>
+      </property>
+     </item>
+     <item>
+      <property name="text">
+       <string>人文学院</string>
+      </property>
+     </item>
+     <item>
+      <property name="text">
+       <string>信息与通信技术学院</string>
+      </property>
+     </item>
+    </widget>
+    <widget class="QComboBox" name="Edit_Permission">
+     <item>
+      <property name="text">
+       <string>任何人</string>
+      </property>
+     </item>
+     <item>
+      <property name="text">
+       <string>教职工</string>
+      </property>
+     </item>
+     <item>
+      <property name="text">
+       <string>学生</string>
+      </property>
+     </item>
+    </widget>
+    <widget class="QDateEdit" name="Edit_Indate">
+     <property name="displayFormat">
+      <string>yy.MM.dd</string>
+     </property>
+     <property name="date">
+      <date>
+       <year>2017</year>
+       <month>3</month>
+       <day>9</day>
+      </date>
+     </property>
+    </widget>
+    <widget class="QLineEdit" name="Edit_Amount"/>
+   </widget>
+   <widget class="QWidget" name="widget" native="true">
+    <property name="geometry">
+     <rect>
+      <x>20</x>
+      <y>30</y>
+      <width>71</width>
+      <height>211</height>
+     </rect>
+    </property>
+    <property name="styleSheet">
+     <string notr="true">font: 25 10pt &quot;等线 Light&quot;;</string>
+    </property>
+    <layout class="QVBoxLayout" name="verticalLayout">
+     <item>
+      <widget class="QLabel" name="Label_Title">
+       <property name="text">
+        <string>书名</string>
+       </property>
+      </widget>
+     </item>
+     <item>
+      <widget class="QLabel" name="Label_Author">
+       <property name="text">
+        <string>作者</string>
+       </property>
+      </widget>
+     </item>
+     <item>
+      <widget class="QLabel" name="Label_Publisher">
+       <property name="text">
+        <string>出版社</string>
+       </property>
+      </widget>
+     </item>
+     <item>
+      <widget class="QLabel" name="Label_Department">
+       <property name="text">
+        <string>图书部门</string>
+       </property>
+      </widget>
+     </item>
+     <item>
+      <widget class="QLabel" name="label">
+       <property name="text">
+        <string>图书权限</string>
+       </property>
+      </widget>
+     </item>
+     <item>
+      <widget class="QLabel" name="Label_InTime">
+       <property name="text">
+        <string>购入时间</string>
+       </property>
+      </widget>
+     </item>
+     <item>
+      <widget class="QLabel" name="Label_Amount">
+       <property name="text">
+        <string>购入数量</string>
+       </property>
+      </widget>
+     </item>
+    </layout>
+   </widget>
+   <widget class="QSplitter" name="splitter_2">
+    <property name="geometry">
+     <rect>
+      <x>440</x>
+      <y>30</y>
+      <width>131</width>
+      <height>161</height>
+     </rect>
+    </property>
+    <property name="styleSheet">
+     <string notr="true">QPushButton {
+	font: 25 10pt &quot;等线 Light&quot;;
+    border: 2px solid #8f8f91;
+    border-radius: 6px;
+    background-color: qlineargradient(x1: 0, y1: 0, x2: 0, y2: 1,
+                                      stop: 0 #f6f7fa, stop: 1 #dadbde);
+    min-width: 80px;
+}
+
+QPushButton:pressed {
+    background-color: qlineargradient(x1: 0, y1: 0, x2: 0, y2: 1,
+                                      stop: 0 #dadbde, stop: 1 #f6f7fa);
+}
+
+QPushButton:flat {
+    border: none; /* no border for a flat push button */
+}
+
+QPushButton:default {
+    border-color: navy; /* make the default button prominent */
+}</string>
+    </property>
+    <property name="orientation">
+     <enum>Qt::Vertical</enum>
+    </property>
+    <widget class="QPushButton" name="Button_save_next">
+     <property name="text">
+      <string>保存并添加下一本</string>
+     </property>
+    </widget>
+    <widget class="QPushButton" name="Button_save_quit">
+     <property name="text">
+      <string>保存并退出</string>
+     </property>
+    </widget>
+    <widget class="QPushButton" name="Button_cancel">
+     <property name="text">
+      <string>取消并返回</string>
+     </property>
+    </widget>
+   </widget>
+   <zorder>splitter_2</zorder>
+   <zorder>splitter_7</zorder>
+   <zorder>widget</zorder>
+   <zorder>splitter</zorder>
+  </widget>
+ </widget>
+ <resources/>
+ <connections>
+  <connection>
+   <sender>Button_cancel</sender>
+   <signal>clicked()</signal>
+   <receiver>NewBookDialog</receiver>
+   <slot>close()</slot>
+   <hints>
+    <hint type="sourcelabel">
+     <x>520</x>
+     <y>195</y>
+    </hint>
+    <hint type="destinationlabel">
+     <x>305</x>
+     <y>246</y>
+    </hint>
+   </hints>
+  </connection>
+ </connections>
+</ui>
