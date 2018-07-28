@@ -28,42 +28,13 @@
    <property name="title">
     <string>添加新书</string>
    </property>
-   <widget class="QSplitter" name="splitter_7">
-    <property name="geometry">
-     <rect>
-      <x>20</x>
-      <y>250</y>
-      <width>401</width>
-      <height>201</height>
-     </rect>
-    </property>
-    <property name="orientation">
-     <enum>Qt::Horizontal</enum>
-    </property>
-    <widget class="QLabel" name="Label_Intro">
-     <property name="styleSheet">
-      <string notr="true">font: 25 10pt &quot;等线 Light&quot;;</string>
-     </property>
-     <property name="text">
-      <string>图书简介</string>
-     </property>
-    </widget>
-    <widget class="QTextEdit" name="Edit_Intro">
-     <property name="styleSheet">
-      <string notr="true">font: 25 10pt &quot;等线 Light&quot;;</string>
-     </property>
-     <property name="placeholderText">
-      <string>100字以内</string>
-     </property>
-    </widget>
-   </widget>
    <widget class="QSplitter" name="splitter">
     <property name="geometry">
      <rect>
-      <x>90</x>
+      <x>111</x>
       <y>30</y>
-      <width>331</width>
-      <height>211</height>
+      <width>151</width>
+      <height>281</height>
      </rect>
     </property>
     <property name="styleSheet">
@@ -145,8 +116,8 @@
      <rect>
       <x>20</x>
       <y>30</y>
-      <width>71</width>
-      <height>211</height>
+      <width>91</width>
+      <height>281</height>
      </rect>
     </property>
     <property name="styleSheet">
@@ -204,62 +175,158 @@
      </item>
     </layout>
    </widget>
-   <widget class="QSplitter" name="splitter_2">
+   <widget class="QPushButton" name="Button_save_next">
     <property name="geometry">
      <rect>
-      <x>440</x>
-      <y>30</y>
-      <width>131</width>
-      <height>161</height>
+      <x>30</x>
+      <y>410</y>
+      <width>200</width>
+      <height>27</height>
      </rect>
     </property>
     <property name="styleSheet">
-     <string notr="true">QPushButton {
-	font: 25 10pt &quot;等线 Light&quot;;
-    border: 2px solid #8f8f91;
-    border-radius: 6px;
-    background-color: qlineargradient(x1: 0, y1: 0, x2: 0, y2: 1,
-                                      stop: 0 #f6f7fa, stop: 1 #dadbde);
-    min-width: 80px;
+     <string notr="true">QPushButton{
+	border:2px groove rgb(255,255,255,0,0);border-radius:10px;padding:2px 4px;
+	font: 12pt &quot;Adobe 黑体 Std R&quot;;
+color:white;
+	background-image: url(:/background/resourse/button.png);
 }
-
-QPushButton:pressed {
-    background-color: qlineargradient(x1: 0, y1: 0, x2: 0, y2: 1,
-                                      stop: 0 #dadbde, stop: 1 #f6f7fa);
+QPushButton:hover{
+	background-image: url(:/background/resourse/button_h.png);
 }
-
-QPushButton:flat {
-    border: none; /* no border for a flat push button */
+QPushButton:pressed{	
+	background-image: url(:/background/resourse/button_P.png);
 }
-
-QPushButton:default {
-    border-color: navy; /* make the default button prominent */
-}</string>
+</string>
     </property>
-    <property name="orientation">
-     <enum>Qt::Vertical</enum>
+    <property name="text">
+     <string>保存并添加下一本</string>
     </property>
-    <widget class="QPushButton" name="Button_save_next">
-     <property name="text">
-      <string>保存并添加下一本</string>
-     </property>
-    </widget>
-    <widget class="QPushButton" name="Button_save_quit">
-     <property name="text">
-      <string>保存并退出</string>
-     </property>
-    </widget>
-    <widget class="QPushButton" name="Button_cancel">
-     <property name="text">
-      <string>取消并返回</string>
-     </property>
-    </widget>
    </widget>
-   <zorder>splitter_2</zorder>
-   <zorder>splitter_7</zorder>
+   <widget class="QPushButton" name="Button_save_quit">
+    <property name="geometry">
+     <rect>
+      <x>240</x>
+      <y>410</y>
+      <width>120</width>
+      <height>27</height>
+     </rect>
+    </property>
+    <property name="styleSheet">
+     <string notr="true">QPushButton{
+	border:2px groove rgb(255,255,255,0,0);border-radius:10px;padding:2px 4px;
+	font: 12pt &quot;Adobe 黑体 Std R&quot;;
+color:white;
+	background-image: url(:/background/resourse/button.png);
+}
+QPushButton:hover{
+	background-image: url(:/background/resourse/button_h.png);
+}
+QPushButton:pressed{	
+	background-image: url(:/background/resourse/button_P.png);
+}
+</string>
+    </property>
+    <property name="text">
+     <string>保存并退出</string>
+    </property>
+   </widget>
+   <widget class="QPushButton" name="Button_cancel">
+    <property name="geometry">
+     <rect>
+      <x>410</x>
+      <y>410</y>
+      <width>120</width>
+      <height>27</height>
+     </rect>
+    </property>
+    <property name="styleSheet">
+     <string notr="true">QPushButton{
+	border:2px groove rgb(255,255,255,0,0);border-radius:10px;padding:2px 4px;
+	font: 12pt &quot;Adobe 黑体 Std R&quot;;
+color:white;
+	background-image: url(:/background/resourse/button.png);
+}
+QPushButton:hover{
+	background-image: url(:/background/resourse/button_h.png);
+}
+QPushButton:pressed{	
+	background-image: url(:/background/resourse/button_P.png);
+}
+</string>
+    </property>
+    <property name="text">
+     <string>取消并返回</string>
+    </property>
+   </widget>
+   <widget class="QLabel" name="Label_Intro">
+    <property name="geometry">
+     <rect>
+      <x>460</x>
+      <y>30</y>
+      <width>121</width>
+      <height>31</height>
+     </rect>
+    </property>
+    <property name="font">
+     <font>
+      <family>等线 Light</family>
+      <pointsize>14</pointsize>
+      <weight>3</weight>
+      <italic>false</italic>
+      <bold>false</bold>
+     </font>
+    </property>
+    <property name="styleSheet">
+     <string notr="true">font: 25 14pt &quot;等线 Light&quot;;</string>
+    </property>
+    <property name="text">
+     <string>图书简介</string>
+    </property>
+   </widget>
+   <widget class="QPlainTextEdit" name="Edit_Intro">
+    <property name="geometry">
+     <rect>
+      <x>320</x>
+      <y>60</y>
+      <width>256</width>
+      <height>211</height>
+     </rect>
+    </property>
+    <property name="styleSheet">
+     <string notr="true">font: 25 10pt &quot;等线 Light&quot;;
+background-image: url(:/background/resourse/b_W.png);</string>
+    </property>
+    <property name="placeholderText">
+     <string>100字以内</string>
+    </property>
+   </widget>
+   <zorder>Button_save_next</zorder>
+   <zorder>Button_save_quit</zorder>
+   <zorder>Button_cancel</zorder>
+   <zorder>Label_Intro</zorder>
+   <zorder>Edit_Intro</zorder>
    <zorder>widget</zorder>
    <zorder>splitter</zorder>
   </widget>
+  <widget class="QLabel" name="label_2">
+   <property name="geometry">
+    <rect>
+     <x>0</x>
+     <y>0</y>
+     <width>601</width>
+     <height>501</height>
+    </rect>
+   </property>
+   <property name="styleSheet">
+    <string notr="true">background-image: url(:/background/resourse/books7.png);</string>
+   </property>
+   <property name="text">
+    <string/>
+   </property>
+  </widget>
+  <zorder>label_2</zorder>
+  <zorder>groupBox</zorder>
  </widget>
  <resources/>
  <connections>

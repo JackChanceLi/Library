@@ -1,18 +1,10 @@
+#include "header.h"
 #include "newbookdialog.h"
 #include "ui_newbookdialog.h"
-#include <QFile>
-#include <QDir>
-#include <QMessageBox>
-#include <QJsonObject>
-#include <QJsonDocument>
-#include <QJsonArray>
+extern User current_user;
+extern QString logfile_name;
+extern int seqinday;
 
-
-/**
- * @brief NewBookDialog::NewBookDialog
- * @param parent
- * 新书入库界面，
- */
 NewBookDialog::NewBookDialog(QWidget *parent) :
     QDialog(parent),
     ui(new Ui::NewBookDialog)
@@ -27,33 +19,21 @@ NewBookDialog::~NewBookDialog()
     delete ui;
 }
 
-/**
- * @brief NewBookDialog::on_Button_save_quit_clicked
- * 保存并退出按钮逻辑
- */
 void NewBookDialog::on_Button_save_quit_clicked()
 {
-    //容错判断
     if (QMessageBox::warning(this, "警告", "是否确定保存？", QMessageBox::Yes, QMessageBox::No) == QMessageBox::No)
         return;
 
-    //文件夹类
     QDir dir;
 
-    dir.makeAbsolute();
+    QDir abs_dir = dir.absolutePath();
 
-    QMessageBox::warning(this, "当前路径", dir.currentPath() + "," + dir.dirName());
-
-    if(dir.dirName() == "Books")
-        QMessageBox::warning(this, "嗯", "已经在这个目录里了");
-
-    if (dir.dirName() != "Books" && !dir.exists("Books"))
+    if (abs_dir.dirName() != "Books" && !abs_dir.exists("Books"))
     {
         dir.mkdir("Books");//创建文件夹
         if (dir.mkdir("Books"))
         {
             QMessageBox::warning(this, "嗯", "创建好Books文件夹了");
-            QMessageBox::warning(this, "en", dir.currentPath());
         }
         else
         {
@@ -61,12 +41,8 @@ void NewBookDialog::on_Button_save_quit_clicked()
             return;
         }
     }
-    //当前位置
-    dir.setCurrent("./Books");
+    dir.cd("Books");
 
-
-
-    //读取表单信息
     QString title = ui->Edit_Title->text();
     QString author = ui->Edit_Author->text();
     QString publisher = ui->Edit_Publisher->text();
@@ -79,65 +55,64 @@ void NewBookDialog::on_Button_save_quit_clicked()
     QString general_index = QString::number(department_index)
             + QString::number(permission_index)
             + QString(inDate);
-//            + (QString)serial_number;
+    if(seqinday < 10)
+        general_index = general_index + "00";
+    else if(seqinday <100)
+        general_index = general_index + "0";
+    general_index = general_index + QString::number(seqinday,10);
+    qDebug()<<"新书的编号为："<<general_index;
+    seqinday++;
 
-
-    //Json格式
     QJsonObject ABook;
     ABook["author"] = author;
     ABook["publisher"] = publisher;
     ABook["amount"] = amount;
     ABook["intro"] = intro;
 
-    //内置Json对象，记录图书借阅记录
+    //为0：可借状态；为1，借出可预约状态；为2，借出已预约状态。
     QJsonObject record;
     for (int i = 0; i < amount; i++)
     {
         QString index = general_index + "#" + QString::number(i);
-        record[index] = true;
+        QJsonObject status;
+        status["condition"] = 0;
+        status["days_left"] = 0;
+        status["current_owner"] = "";
+        status["order_user"] = "";
+        record[index] = status;
     }
     ABook["record"] = record;
 
 
-    //打开保存文件，创建。。。
-    QFile f(general_index + " " + title + " " + author + ".json");
+    QFile f("./Books/" + general_index + "#" + title + "#" + author + "#.json");
     if (!f.open(QFile::WriteOnly))
     {
         QMessageBox::warning(this, "err", "cant open");
         return;
     }
 
-    //保存JSON
+
     QJsonDocument save_file(ABook);
     f.write(save_file.toJson());
+    f.close();
 
-
+    Tool::systemlog(logfile_name,"新书录入",current_user.get_username(),"录入新书--《"+title+"》");
     QMessageBox::warning(this, "嗯", "图书条目保存成功！");
-
-    dir.cdUp();
 
     close();
 }
 
-
-/**
- * @brief NewBookDialog::on_Button_save_next_clicked
- * 保存并添加下一本书
- */
 void NewBookDialog::on_Button_save_next_clicked()
 {
     if (QMessageBox::warning(this, "警告", "是否确定保存？", QMessageBox::Yes, QMessageBox::No) == QMessageBox::No)
         return;
 
-    //寻文件夹
     QDir dir;
-    dir.makeAbsolute();
-    if (dir.dirName() != "Books" && !dir.exists("Books"))
+    QDir abs_dir = dir.absolutePath();
+    if (abs_dir.dirName() != "Books" && !abs_dir.exists("Books"))
     {
         dir.mkdir("Books");
     }
-    dir.setCurrent("./Books");
-
 
     QString title = ui->Edit_Title->text();
     QString author = ui->Edit_Author->text();
@@ -154,6 +129,7 @@ void NewBookDialog::on_Button_save_next_clicked()
 //            + (QString)serial_number;
 
     QJsonObject ABook;
+    //ABook["title"]
     ABook["author"] = author;
     ABook["publisher"] = publisher;
     ABook["amount"] = amount;
@@ -162,11 +138,17 @@ void NewBookDialog::on_Button_save_next_clicked()
     for (int i = 0; i < amount; i++)
     {
         QString index = general_index + "#" + QString::number(i);
-        record[index] = true;
+        QJsonObject status;
+        status["condition"] = 0;
+        status["days_left"] = 0;
+        status["current_owner"] = "";
+        status["order_user"] = "";
+        record[index] = status;
     }
     ABook["record"] = record;
 
-    QFile f(general_index + " " + title + " " + author + ".json");
+
+    QFile f("./Books/" + general_index + "#" + title + "#" + author + "#.json");
     if (!f.open(QFile::WriteOnly))
     {
         QMessageBox::warning(this, "err", "cant open");
@@ -176,8 +158,11 @@ void NewBookDialog::on_Button_save_next_clicked()
     f.write(save_file.toJson());
     f.close();
 
+//  QMessageBox::warning(this, "嗯", dir.currentPath());
+
 
     QMessageBox::warning(this, "嗯", "图书条目保存成功！");
+    Tool::systemlog(logfile_name,"新书录入",current_user.get_username(),"录入新书--《"+title+"》");
 
     ui->Edit_Title->clear();
     ui->Edit_Author->clear();
@@ -186,6 +171,4 @@ void NewBookDialog::on_Button_save_next_clicked()
     ui->Edit_Intro->clear();
     ui->Edit_Title->setFocus();
 
-//    if (!dir.cdUp())
-//        QMessageBox::warning(this, "cant change current path", dir.currentPath());
 }

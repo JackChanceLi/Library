@@ -1,29 +1,19 @@
+#include "header.h"
 #include "searchdialog.h"
-#include "borrowdialog.h"
 #include "ui_searchdialog.h"
-#include <QMessageBox>
-#include <QDir>
-#include<QDebug>
-//#include <QStandardItemModel>
-//#include <QTableView>
+#include "borrowdialog.h"
+#include "mainwindow.h"
 
-/**
- * @brief SearchDialog::SearchDialog
- * @param parent
- * 搜索界面逻辑
- */
 SearchDialog::SearchDialog(QWidget *parent) :
     QDialog(parent),
     ui(new Ui::SearchDialog)
 {
     ui->setupUi(this);
 
-    ui->book_table->setColumnCount(3);//设置表格的列数目
+    ui->book_table->setColumnCount(3);
 //    ui->book_table->setRowCount(5);
-    //设置表格的列表头
     QStringList header;
     header << "编号" << "标题" << "作者";
-
     ui->book_table->setHorizontalHeaderLabels(header); //设置行表头
     ui->book_table->horizontalHeader()->setStyleSheet("QHeaderView::section{background:#c4e2fc}");
     ui->book_table->horizontalHeader()->setHighlightSections(false);
@@ -56,56 +46,60 @@ SearchDialog::~SearchDialog()
 }
 
 /**
- * @brief SearchDialog::open_borrow_dialog
+ * @brief 打开借阅对话框
  * @param file
- * 借阅图书详细界面
  */
 void SearchDialog::open_borrow_dialog(QString file)
 {
     BorrowDialog * dlg = new BorrowDialog(file, this);
     dlg->setWindowTitle("详细信息");
-    dlg->setWindowModality(Qt::ApplicationModal);
-    dlg->show();
+//    dlg->setWindowModality(Qt::ApplicationModal);
+    dlg->exec();
 }
 
 
 /**
- * @brief SearchDialog::on_Butto_search_clicked
- * 搜索按钮
+ * @brief 借阅对话框中的搜索按钮逻辑
  */
 void SearchDialog::on_Butto_search_clicked()
 {
     QDir dir;
-    dir.setCurrent("Books");
-    qDebug()<<"当前文件夹为"<<dir.currentPath();
+    QDir abs_dir = dir.absolutePath();
+    if (abs_dir.dirName() != "Books" && !abs_dir.exists("Books"))
+    {
+//        QMessageBox::warning(this, "en", dir.currentPath());
+        QMessageBox::warning(this, "en", "请先入库一本书");
+        close();
+        return;
+    }
+//    QMessageBox::warning(this, "en", dir.currentPath());
 
-    //获取搜索内容
+    dir.cd("Books");
+
     QString key = ui->lineEdit->text();
-    //通过dir类搜索文件
     QStringList filters;
     filters << "*" + key + "*";
-    dir.setFilter(QDir::Files);//文件名字作为筛选
-    dir.setNameFilters(filters);//传入文件名
 
+    dir.setFilter(QDir::Files);
+    dir.setNameFilters(filters);
 
-    QFileInfoList booklist = dir.entryInfoList();//获取文件信息列表
+    QFileInfoList booklist = dir.entryInfoList();
 
     QString file_name;
 
     int count = booklist.size();
-    ui->book_table->setRowCount(count);//根据搜索的结果设置表格的行数
+    ui->book_table->setRowCount(count);
 
     for (int i = 0; i < count; i++)
     {
         QFileInfo file_info = booklist.at(i);
-        file_name = file_info.baseName();//读取文件名
+        file_name = file_info.fileName();
 
-        QStringList name_list = file_name.split(" ");//将文件名分解，读取基本信息
+        QStringList name_list = file_name.split("#");
         QString index = name_list.at(0);
         QString title = name_list.at(1);
         QString author = name_list.at(2);
 
-        //设置表格item的内容
         QTableWidgetItem * item_index = new QTableWidgetItem();
         item_index->setText(index);
         item_index->setTextAlignment(Qt::AlignHCenter | Qt::AlignVCenter);
@@ -116,7 +110,6 @@ void SearchDialog::on_Butto_search_clicked()
         item_author->setText(author);
         item_author->setTextAlignment(Qt::AlignHCenter | Qt::AlignVCenter);
 
-        //将item显示出来
         ui->book_table->setItem(i, 0, item_index);
         ui->book_table->setItem(i, 1, item_title);
         ui->book_table->setItem(i, 2, item_author);
@@ -125,17 +118,16 @@ void SearchDialog::on_Butto_search_clicked()
 }
 
 /**
- * @brief SearchDialog::on_book_table_itemDoubleClicked
+ * @brief 查询结果双击逻辑
  * @param item
- * 双击逻辑，开启借书界面。
  */
 void SearchDialog::on_book_table_itemDoubleClicked(QTableWidgetItem *item)
 {
 
     int row = item->row();
-    QString file_name = ui->book_table->item(row, 0)->text() + " "
-            + ui->book_table->item(row, 1)->text() + " "
-            + ui->book_table->item(row, 2)->text();
+    QString file_name = ui->book_table->item(row, 0)->text() + "#"
+            + ui->book_table->item(row, 1)->text() + "#"
+            + ui->book_table->item(row, 2)->text() + "#";
 
     emit require_borrow_dialog(file_name);
 

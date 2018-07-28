@@ -1,0 +1,52 @@
+<RCC>
+    <qresource prefix="/background">
+        <file>resourse/background_1.gif</file>
+        <file>resourse/header.png</file>
+        <file>resourse/login_background.gif</file>
+        <file>resourse/mainwindow_background.png</file>
+        <file>resourse/white.png</file>
+        <file>resourse/查询.png</file>
+        <file>resourse/系统设置.png</file>
+        <file>resourse/账户管理.png</file>
+        <file>resourse/按钮.png</file>
+        <file>resourse/管理.png</file>
+        <file>resourse/借阅管理.png</file>
+        <file>resourse/入库.png</file>
+        <file>resourse/刷新.png</file>
+        <file>resourse/系统设置 (1).png</file>
+        <file>resourse/罚款.png</file>
+        <file>resourse/提交.png</file>
+        <file>resourse/更改.png</file>
+        <file>resourse/照片上传.png</file>
+        <file>resourse/更改密码.png</file>
+        <file>resourse/启动.png</file>
+        <file>resourse/海星.jpg</file>
+        <file>resourse/粉色少女.jpg</file>
+        <file>resourse/background.jpg</file>
+        <file>resourse/login_1.png</file>
+        <file>resourse/button.png</file>
+        <file>resourse/button_h.png</file>
+        <file>resourse/button_P.png</file>
+        <file>resourse/X.png</file>
+        <file>resourse/register.png</file>
+        <file>resourse/Library.ico</file>
+        <file>resourse/White_back.png</file>
+        <file>resourse/White_back_hover.png</file>
+        <file>resourse/White_back_h.png</file>
+        <file>resourse/b_W.png</file>
+        <file>resourse/transparent.png</file>
+        <file>resourse/red.png</file>
+        <file>resourse/books1.png</file>
+        <file>resourse/books2.png</file>
+        <file>resourse/books3.png</file>
+        <file>resourse/books4.png</file>
+        <file>resourse/M_B.png</file>
+        <file>resourse/books5.png</file>
+        <file>resourse/books6.png</file>
+        <file>resourse/books7.png</file>
+        <file>resourse/books8.png</file>
+    </qresource>
+    <qresource prefix="/">
+        <file>resourse/button.png</file>
+    </qresource>
+</RCC>

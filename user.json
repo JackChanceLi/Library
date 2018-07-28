@@ -1,16 +1,63 @@
 {
-    "userlist": [
+    "adminlist": [
         {
-            "account": "JackChance",
-            "password": "asdfgh",
-            "name": "jackchanceli",
-            "identify": "ѧ��"
+            "account": "admin",
+            "apartment": "计算机学院",
+            "borrow_records": {
+            },
+            "code": "BUPTLIBRARY",
+            "credit": 60,
+            "gender": "男",
+            "identify": "管理员",
+            "name": "李加畅",
+            "number": "2015211256",
+            "order_records": {
+            },
+            "password": "123456",
+            "picsrc": "C:/Users/蚍蜉/Pictures/jay.jpg"
         },
         {
-            "account": "karlpig",
-            "password": "qwerty",
-            "name": "jackchanceli",
-            "identify": "ѧ��"
+            "account": "123456789",
+            "apartment": "计算机学院",
+            "borrow_records": {
+            },
+            "code": "BUPTLIBRARY",
+            "credit": 60,
+            "gender": "男",
+            "identify": "管理员",
+            "name": "成问题",
+            "number": "123456",
+            "order_records": {
+            },
+            "password": "123456",
+            "picsrc": "C:/Users/蚍蜉/Pictures/0fb5d6afabe87ed3ce5dd923c0d519bc.jpg"
+        }
+    ],
+    "userlist": [
+        {
+            "academy": "计算机学院",
+            "account": "2015211256",
+            "apartment": "2015211305",
+            "borrow_records": {
+                "00170310#1": {
+                    "bookfile_name": "00170310#Computer Networks (FIFTH EDITION)#Andrew S.Tanenbaum#.json",
+                    "borrow_date": "170407",
+                    "condition": 1,
+                    "days_left": 30,
+                    "return_date": "170507",
+                    "spec_index": "00170310#1"
+                }
+            },
+            "credit": 62,
+            "enroll": 2015,
+            "gender": "男",
+            "identify": "学生",
+            "name": "厘加长",
+            "number": "2015211256",
+            "order_records": {
+            },
+            "password": "123456",
+            "picsrc": "C:/Users/蚍蜉/Pictures/44444.jpg"
         }
     ]
-}s
+}

@@ -28,26 +28,34 @@ SOURCES += main.cpp\
     logindialog.cpp \
     newbookdialog.cpp \
     borrowdialog.cpp \
-    searchdialog.cpp \
-    borrowsheetdialog.cpp \
     register.cpp \
-    header.cpp
+    header.cpp \
+    logviewdialog.cpp \
+    bookmanagedialog.cpp \
+    utility.cpp \
+    datethread.cpp \
+    dialogfine.cpp
 
 HEADERS  += mainwindow.h \
     logindialog.h \
     newbookdialog.h \
     borrowdialog.h \
-    searchdialog.h \
-    borrowsheetdialog.h \
     register.h \
-    header.h
+    header.h \
+    logviewdialog.h \
+    bookmanagedialog.h \
+    utility.h \
+    datethread.h \
+    dialogfine.h
 
 FORMS    += mainwindow.ui \
     logindialog.ui \
     newbookdialog.ui \
     borrowdialog.ui \
-    searchdialog.ui \
-    borrowsheetdialog.ui \
-    register.ui
+    register.ui \
+    logviewdialog.ui \
+    bookmanagedialog.ui \
+    dialogfine.ui
 
-RESOURCES +=
+RESOURCES += \
+    resourse.qrc

@@ -6,159 +6,250 @@
    <rect>
     <x>0</x>
     <y>0</y>
-    <width>400</width>
-    <height>300</height>
+    <width>615</width>
+    <height>448</height>
    </rect>
   </property>
   <property name="windowTitle">
    <string>请登陆</string>
   </property>
+  <property name="windowIcon">
+   <iconset resource="resourse.qrc">
+    <normaloff>:/background/resourse/Library.ico</normaloff>:/background/resourse/Library.ico</iconset>
+  </property>
   <property name="styleSheet">
    <string notr="true"/>
   </property>
-  <widget class="QLabel" name="label_3">
+  <widget class="QCheckBox" name="remember_checkbox">
    <property name="geometry">
     <rect>
-     <x>90</x>
-     <y>40</y>
-     <width>221</width>
+     <x>430</x>
+     <y>330</y>
+     <width>101</width>
      <height>31</height>
     </rect>
    </property>
    <property name="styleSheet">
-    <string notr="true">font: 25 14pt &quot;等线 Light&quot;;</string>
-   </property>
-   <property name="text">
-    <string>欢迎使用图书馆管理系统</string>
-   </property>
-   <property name="alignment">
-    <set>Qt::AlignCenter</set>
-   </property>
-  </widget>
-  <widget class="QSplitter" name="splitter">
-   <property name="geometry">
-    <rect>
-     <x>61</x>
-     <y>91</y>
-     <width>51</width>
-     <height>81</height>
-    </rect>
-   </property>
-   <property name="orientation">
-    <enum>Qt::Vertical</enum>
-   </property>
-   <widget class="QLabel" name="label_2">
-    <property name="styleSheet">
-     <string notr="true">font: 25 10pt &quot;等线 Light&quot;;</string>
-    </property>
-    <property name="text">
-     <string>账户</string>
-    </property>
-   </widget>
-   <widget class="QLabel" name="label">
-    <property name="styleSheet">
-     <string notr="true">font: 25 10pt &quot;等线 Light&quot;;</string>
-    </property>
-    <property name="text">
-     <string>密码</string>
-    </property>
-   </widget>
-  </widget>
-  <widget class="QSplitter" name="splitter_3">
-   <property name="geometry">
-    <rect>
-     <x>61</x>
-     <y>201</y>
-     <width>281</width>
-     <height>51</height>
-    </rect>
-   </property>
-   <property name="styleSheet">
-    <string notr="true">QPushButton {
-	font: 25 14pt &quot;等线 Light&quot;;
-    border: 2px solid #8f8f91;
-    border-radius: 6px;
-    background-color: qlineargradient(x1: 0, y1: 0, x2: 0, y2: 1,
-                                      stop: 0 #f6f7fa, stop: 1 #dadbde);
-    min-width: 80px;
-}
-
-QPushButton:pressed {
-    background-color: qlineargradient(x1: 0, y1: 0, x2: 0, y2: 1,
-                                      stop: 0 #dadbde, stop: 1 #f6f7fa);
-}
-
-QPushButton:flat {
-    border: none; /* no border for a flat push button */
-}
-
-QPushButton:default {
-    border-color: navy; /* make the default button prominent */
-}</string>
-   </property>
-   <property name="orientation">
-    <enum>Qt::Horizontal</enum>
-   </property>
-   <widget class="QPushButton" name="login_pushButton">
-    <property name="styleSheet">
-     <string notr="true"/>
-    </property>
-    <property name="text">
-     <string>登陆</string>
-    </property>
-   </widget>
-   <widget class="QPushButton" name="register_pushButton">
-    <property name="styleSheet">
-     <string notr="true"/>
-    </property>
-    <property name="text">
-     <string>注册</string>
-    </property>
-   </widget>
-  </widget>
-  <widget class="QCheckBox" name="remember_checkbox">
-   <property name="geometry">
-    <rect>
-     <x>170</x>
-     <y>170</y>
-     <width>71</width>
-     <height>16</height>
-    </rect>
+    <string notr="true">font: 9pt &quot;等线&quot;;
+color:rgb(15,154,232)</string>
    </property>
    <property name="text">
     <string>记住密码</string>
    </property>
   </widget>
-  <widget class="QSplitter" name="splitter_2">
+  <widget class="QLabel" name="label_date">
    <property name="geometry">
     <rect>
-     <x>110</x>
-     <y>90</y>
+     <x>250</x>
+     <y>265</y>
      <width>211</width>
-     <height>71</height>
+     <height>21</height>
     </rect>
    </property>
-   <property name="orientation">
-    <enum>Qt::Vertical</enum>
+   <property name="styleSheet">
+    <string notr="true">font: 25 9pt &quot;Adobe 宋体 Std L&quot;;
+</string>
    </property>
-   <widget class="QComboBox" name="user_account">
-    <property name="editable">
-     <bool>true</bool>
-    </property>
-   </widget>
-   <widget class="QLineEdit" name="pwd_lineEdit">
-    <property name="styleSheet">
-     <string notr="true">font: 25 10pt &quot;等线 Light&quot;;</string>
-    </property>
-    <property name="echoMode">
-     <enum>QLineEdit::Password</enum>
-    </property>
-    <property name="placeholderText">
-     <string>输入密码</string>
-    </property>
-   </widget>
+   <property name="text">
+    <string>TextLabel</string>
+   </property>
   </widget>
+  <widget class="QLabel" name="label_5">
+   <property name="geometry">
+    <rect>
+     <x>190</x>
+     <y>265</y>
+     <width>51</width>
+     <height>21</height>
+    </rect>
+   </property>
+   <property name="styleSheet">
+    <string notr="true">font: 11pt &quot;Adobe Arabic&quot;;</string>
+   </property>
+   <property name="text">
+    <string>日期</string>
+   </property>
+  </widget>
+  <widget class="QLabel" name="label_movie">
+   <property name="geometry">
+    <rect>
+     <x>30</x>
+     <y>60</y>
+     <width>611</width>
+     <height>441</height>
+    </rect>
+   </property>
+   <property name="text">
+    <string/>
+   </property>
+  </widget>
+  <widget class="QProgressBar" name="progressBar_time">
+   <property name="geometry">
+    <rect>
+     <x>4</x>
+     <y>255</y>
+     <width>592</width>
+     <height>3</height>
+    </rect>
+   </property>
+   <property name="value">
+    <number>24</number>
+   </property>
+   <property name="textVisible">
+    <bool>false</bool>
+   </property>
+  </widget>
+  <widget class="QLabel" name="label">
+   <property name="geometry">
+    <rect>
+     <x>160</x>
+     <y>333</y>
+     <width>41</width>
+     <height>21</height>
+    </rect>
+   </property>
+   <property name="styleSheet">
+    <string notr="true">font: 50 10pt &quot;等线 Light&quot;;</string>
+   </property>
+   <property name="text">
+    <string>密码</string>
+   </property>
+  </widget>
+  <widget class="QLabel" name="label_2">
+   <property name="geometry">
+    <rect>
+     <x>160</x>
+     <y>295</y>
+     <width>34</width>
+     <height>18</height>
+    </rect>
+   </property>
+   <property name="styleSheet">
+    <string notr="true">font: 50 10pt &quot;等线 Light&quot;;</string>
+   </property>
+   <property name="text">
+    <string>账户</string>
+   </property>
+  </widget>
+  <widget class="QPushButton" name="login_pushButton">
+   <property name="geometry">
+    <rect>
+     <x>190</x>
+     <y>370</y>
+     <width>240</width>
+     <height>40</height>
+    </rect>
+   </property>
+   <property name="styleSheet">
+    <string notr="true">QPushButton{
+	border:2px groove rgb(255,255,255,0,0);border-radius:10px;padding:2px 4px;
+	font: 12pt &quot;Adobe 黑体 Std R&quot;;
+color:white;
+	background-image: url(:/background/resourse/button.png);
+}
+QPushButton:hover{
+	background-image: url(:/background/resourse/button_h.png);
+}
+QPushButton:pressed{	
+	background-image: url(:/background/resourse/button_P.png);
+}
+</string>
+   </property>
+   <property name="text">
+    <string>登陆</string>
+   </property>
+  </widget>
+  <widget class="QPushButton" name="register_pushButton">
+   <property name="geometry">
+    <rect>
+     <x>430</x>
+     <y>290</y>
+     <width>93</width>
+     <height>28</height>
+    </rect>
+   </property>
+   <property name="styleSheet">
+    <string notr="true">QPushButton{background-color: rgb(255, 255, 255,0,0);color:rgb(15,154,232);font-size:15px;}
+QPushButton:hover{color:rgb(127,204,248);
+background-color:rgb(255,255,255,0,0);}
+</string>
+   </property>
+   <property name="text">
+    <string>注册 (&amp;R)</string>
+   </property>
+  </widget>
+  <widget class="QComboBox" name="user_account">
+   <property name="geometry">
+    <rect>
+     <x>210</x>
+     <y>290</y>
+     <width>211</width>
+     <height>30</height>
+    </rect>
+   </property>
+   <property name="styleSheet">
+    <string notr="true">QComboBox{
+    border: 1px solid gray;
+    border-radius: 4px;
+    padding: 1px 2px 1px 2px;  
+    min-width: 9em;  
+	
+	font: 12pt &quot;ADMUI3Lg&quot;;
+}
+QComboBox::drop-down {
+    subcontrol-origin: padding;
+    subcontrol-position: top right;
+    width: 20px;
+ 
+    border-left-width: 1px;
+    border-left-color: darkgray;
+    border-left-style: solid; /* just a single line */
+    border-top-right-radius: 3px; /* same radius as the QComboBox */
+    border-bottom-right-radius: 3px;
+}
+QComboBox::arrow{
+}
+ 
+</string>
+   </property>
+   <property name="editable">
+    <bool>true</bool>
+   </property>
+  </widget>
+  <widget class="QLineEdit" name="user_password">
+   <property name="geometry">
+    <rect>
+     <x>210</x>
+     <y>330</y>
+     <width>211</width>
+     <height>31</height>
+    </rect>
+   </property>
+   <property name="styleSheet">
+    <string notr="true">font: 75 10pt &quot;等线&quot;;
+border:2px groove gray;border-radius:4px;padding:2px 2px;</string>
+   </property>
+   <property name="echoMode">
+    <enum>QLineEdit::Password</enum>
+   </property>
+   <property name="placeholderText">
+    <string>输入密码</string>
+   </property>
+  </widget>
+  <zorder>label_movie</zorder>
+  <zorder>label</zorder>
+  <zorder>label_2</zorder>
+  <zorder>label_5</zorder>
+  <zorder>label_date</zorder>
+  <zorder>login_pushButton</zorder>
+  <zorder>progressBar_time</zorder>
+  <zorder>register_pushButton</zorder>
+  <zorder>remember_checkbox</zorder>
+  <zorder>user_account</zorder>
+  <zorder>user_password</zorder>
  </widget>
- <resources/>
+ <resources>
+  <include location="resourse.qrc"/>
+ </resources>
  <connections/>
 </ui>
